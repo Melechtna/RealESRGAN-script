@@ -71,11 +71,11 @@ def process_frame(frame_path, output_folder, esrgan_script, scaling_factor):
         )
 
 def main(model_name, scaling_factor, esrgan_script, input_folder, output_folder):
-    # Get a list of frame paths
+    # Get a list of frame paths for image files only
     frame_paths = [
         os.path.join(input_folder, frame)
         for frame in os.listdir(input_folder)
-        if frame.endswith(".png")
+        if frame.lower().endswith((".png", ".jpg", ".jpeg"))
     ]
 
     total_frames = len(frame_paths)
